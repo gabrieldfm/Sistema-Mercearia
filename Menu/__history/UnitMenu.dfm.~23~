@@ -1,0 +1,142 @@
+object FrmMenu: TFrmMenu
+  Left = 0
+  Top = 0
+  Caption = 'Menu'
+  ClientHeight = 252
+  ClientWidth = 468
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Menu = Menu
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object StSatus: TStatusBar
+    Left = 0
+    Top = 233
+    Width = 468
+    Height = 19
+    Panels = <
+      item
+        Width = 50
+      end
+      item
+        Width = 50
+      end
+      item
+        Width = 50
+      end
+      item
+        Width = 50
+      end>
+    ExplicitLeft = 256
+    ExplicitTop = 200
+    ExplicitWidth = 0
+  end
+  object Menu: TMainMenu
+    Left = 72
+    Top = 56
+    object Cadastros1: TMenuItem
+      Caption = 'Cadastros'
+      object Bsicos1: TMenuItem
+        Caption = 'B'#225'sicos'
+        object CIDADES1: TMenuItem
+          Caption = 'CIDADES'
+          OnClick = CIDADES1Click
+        end
+        object FORNECEDOR1: TMenuItem
+          Caption = 'FORNECEDOR'
+          OnClick = FORNECEDOR1Click
+        end
+        object CLIENTE1: TMenuItem
+          Caption = 'CLIENTE'
+          OnClick = CLIENTE1Click
+        end
+        object DEPTOPESSOAL1: TMenuItem
+          Caption = 'DEPTO. PESSOAL'
+          object FUNCIONRIOS1: TMenuItem
+            Caption = 'FUNCION'#193'RIOS'
+            OnClick = FUNCIONRIOS1Click
+          end
+          object DEPENDENTES1: TMenuItem
+            Caption = 'DEPENDENTES'
+            OnClick = DEPENDENTES1Click
+          end
+          object SETOR1: TMenuItem
+            Caption = 'SETOR'
+            OnClick = SETOR1Click
+          end
+          object CARGOS1: TMenuItem
+            Caption = 'CARGOS'
+            OnClick = CARGOS1Click
+          end
+        end
+        object PRODUTOS1: TMenuItem
+          Caption = 'PRODUTOS'
+          OnClick = PRODUTOS1Click
+        end
+        object FRETE1: TMenuItem
+          Caption = 'FRETE'
+          OnClick = FRETE1Click
+        end
+        object FRMPAGAMENTO1: TMenuItem
+          Caption = 'FRM. PAGAMENTO'
+          OnClick = FRMPAGAMENTO1Click
+        end
+      end
+    end
+    object Pesquisa1: TMenuItem
+      Caption = 'Pesquisa'
+      object B1: TMenuItem
+        Caption = 'B'#225'sicos'
+        object CIDADES2: TMenuItem
+          Caption = 'CIDADES'
+          OnClick = CIDADES2Click
+        end
+        object FORNECEDOR2: TMenuItem
+          Caption = 'FORNECEDOR'
+          OnClick = FORNECEDOR2Click
+        end
+        object CLIENTES1: TMenuItem
+          Caption = 'CLIENTES'
+          OnClick = CLIENTES1Click
+        end
+        object DEPTOPESSOAL2: TMenuItem
+          Caption = 'DEPTO. PESSOAL'
+          object FUNCIONRIO1: TMenuItem
+            Caption = 'FUNCION'#193'RIO'
+            OnClick = FUNCIONRIO1Click
+          end
+          object DEPENDENTES2: TMenuItem
+            Caption = 'DEPENDENTES'
+            OnClick = DEPENDENTES2Click
+          end
+          object SETOR2: TMenuItem
+            Caption = 'SETOR'
+            OnClick = SETOR2Click
+          end
+          object CARGOS2: TMenuItem
+            Caption = 'CARGOS'
+            OnClick = CARGOS2Click
+          end
+        end
+        object PRODUTOS2: TMenuItem
+          Caption = 'PRODUTOS'
+          OnClick = PRODUTOS2Click
+        end
+        object FRETE2: TMenuItem
+          Caption = 'FRETE'
+          OnClick = FRETE2Click
+        end
+        object FRMPAGAMENTO2: TMenuItem
+          Caption = 'FRM. PAGAMENTO'
+          OnClick = FRMPAGAMENTO2Click
+        end
+      end
+    end
+  end
+end
