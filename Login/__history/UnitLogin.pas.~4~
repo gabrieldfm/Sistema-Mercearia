@@ -1,0 +1,59 @@
+unit UnitLogin;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons;
+
+type
+  TFrmLogin = class(TForm)
+    LbLogin: TLabeledEdit;
+    LbSenha: TLabeledEdit;
+    BtEntrar: TBitBtn;
+    BtCancelar: TBitBtn;
+    procedure BtEntrarClick(Sender: TObject);
+    procedure BtCancelarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmLogin: TFrmLogin;
+
+implementation
+
+{$R *.dfm}
+
+uses UnitDMConexao;
+
+procedure TFrmLogin.BtCancelarClick(Sender: TObject);
+begin
+  Application.Terminate;
+end;
+
+procedure TFrmLogin.BtEntrarClick(Sender: TObject);
+var
+sql:string;
+begin
+   sql:= 'SELECT * FROM USUARIO WHERE LOGIN = :LOGIN AND SENHA = :SENHA ';
+  Conexao.alteraSQL(Conexao.Query,sql);
+  Conexao.Query.Close;
+  Conexao.Query.ParamByName('LOGIN').AsString := LbLogin.Text;
+  Conexao.Query.ParamByName('SENHA').AsString := LBsenha.Text;
+  Conexao.Query.Open;
+
+  if (Conexao.Query.IsEmpty) then
+  begin
+    Application.MessageBox('USUARIO/SENHA INVALIDO!','ERRO',MB_ICONERROR+MB_OK);
+    LbLogin.SetFocus;
+    exit;
+  end;
+
+  ModalResult:= mrOk;
+
+end;
+
+end.
