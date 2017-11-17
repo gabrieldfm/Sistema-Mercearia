@@ -1,0 +1,31 @@
+unit UnitPesquisaPadrao;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, IBX.IBCustomDataSet,
+  IBX.IBQuery, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TFrmPesquisaPadrao = class(TForm)
+    Query: TIBQuery;
+    DS: TDataSource;
+    GpPesq: TGroupBox;
+    RdPesq: TRadioGroup;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmPesquisaPadrao: TFrmPesquisaPadrao;
+
+implementation
+
+{$R *.dfm}
+
+uses UnitDMConexao;
+
+end.

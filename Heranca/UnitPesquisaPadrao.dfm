@@ -1,0 +1,101 @@
+object FrmPesquisaPadrao: TFrmPesquisaPadrao
+  Left = 0
+  Top = 0
+  Caption = 'FrmPesquisaPadrao'
+  ClientHeight = 387
+  ClientWidth = 654
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object GpPesq: TGroupBox
+    Left = 0
+    Top = 280
+    Width = 654
+    Height = 107
+    Align = alBottom
+    Caption = 'Pesquisar'
+    TabOrder = 0
+    ExplicitLeft = 8
+    object Label1: TLabel
+      Left = 207
+      Top = 45
+      Width = 24
+      Height = 13
+      Caption = 'Filtro'
+    end
+    object RdPesq: TRadioGroup
+      Left = 16
+      Top = 16
+      Width = 185
+      Height = 80
+      ItemIndex = 0
+      Items.Strings = (
+        'C'#243'digo'
+        'Nome')
+      TabOrder = 0
+    end
+    object BtPesquisar: TBitBtn
+      Left = 496
+      Top = 64
+      Width = 121
+      Height = 25
+      Caption = 'Pesquisar'
+      TabOrder = 1
+    end
+    object MskFiltro: TMaskEdit
+      Left = 207
+      Top = 64
+      Width = 266
+      Height = 21
+      CharCase = ecUpperCase
+      TabOrder = 2
+      Text = 'MSKFILTRO'
+    end
+    object BtImprimir: TBitBtn
+      Left = 496
+      Top = 24
+      Width = 121
+      Height = 25
+      Caption = 'Imprimir'
+      TabOrder = 3
+    end
+  end
+  object GridPesq: TDBGrid
+    Left = 0
+    Top = 0
+    Width = 654
+    Height = 280
+    Align = alClient
+    DataSource = DS
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    OnDblClick = GridPesqDblClick
+  end
+  object Query: TIBQuery
+    Database = Conexao.DB
+    Transaction = Conexao.transacao
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    Left = 560
+    Top = 40
+  end
+  object DS: TDataSource
+    DataSet = Query
+    Left = 552
+    Top = 112
+  end
+end
