@@ -1,0 +1,48 @@
+unit UnitDMConexao;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DB, IBX.IBCustomDataSet, IBX.IBQuery,
+  IBX.IBDatabase;
+
+type
+  TConexao = class(TDataModule)
+    DB: TIBDatabase;
+    transacao: TIBTransaction;
+    Query: TIBQuery;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    procedure alteraSQL(Query: TIBQuery; SQL: String);
+    function geraPK(PK, table: string): integer;
+  end;
+
+var
+  Conexao: TConexao;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+procedure TConexao.alteraSQL(Query: TIBQuery; SQL: String);
+Begin
+  Query.Close;
+  Query.SQL.Clear;
+  Query.SQL.Add(SQL);
+  Query.Open;
+End;
+
+function TConexao.geraPK(PK, table: string): integer;
+var
+sql: string;
+begin
+  sql:= 'select max (' + pk + ') as maior '
+  + 'from ' + table ;
+  geraPK:= Query.FieldByName('maior').AsInteger + 1;
+end;
+
+end.

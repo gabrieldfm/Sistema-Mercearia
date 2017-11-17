@@ -1,0 +1,32 @@
+object Conexao: TConexao
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Height = 245
+  Width = 336
+  object DB: TIBDatabase
+    Connected = True
+    DatabaseName = 'C:\Users\CarlosGabriel\Desktop\PA2 CARLOS\Dados\DB_CARLOS.FDB'
+    Params.Strings = (
+      'user_name=sysdba'
+      'password=masterkey')
+    LoginPrompt = False
+    DefaultTransaction = transacao
+    ServerType = 'IBServer'
+    Left = 96
+    Top = 40
+  end
+  object transacao: TIBTransaction
+    DefaultDatabase = DB
+    Left = 224
+    Top = 80
+  end
+  object Query: TIBQuery
+    Database = DB
+    Transaction = transacao
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    Left = 224
+    Top = 168
+  end
+end
